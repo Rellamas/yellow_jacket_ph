@@ -44,12 +44,12 @@
          data-name="Nendoroid Bachira Meguru (BLUELOCK)" 
          data-description="From the anime series BLUELOCK comes a Nendoroid of Bachira Meguru!" 
          data-price="₱2,575" 
-         data-link="https://shopee.ph/Nendoroid-Bachira-Meguru-(BLUELOCK)-i.46216431.41459313085?extraParams=%7B%22display_model_id%22%3A260780737681%7DD">
+         data-link="https://shopee.ph/Nendoroid-Bachira-Meguru-(BLUELOCK)-i.46216431.41459313085?extraParams=%7B%22display_model_id%22%3A260780737681%7D">
       <img src="images/products/nendoroid_bachira_meguru_(BLUELOCK).webp" alt="Nendoroid Bachira Meguru (BLUELOCK)" />
       <h3>GOOD SMILE COMPANY - Nendoroid Bachira Meguru (BLUELOCK)</h3>
       <p>Regular price - ₱2,575.00</p>
     </div>
-
+  </div>
 </main>
 
 <!-- Pop-up modal for product details -->
@@ -57,8 +57,8 @@
   <div class="modal-content">
     <span id="modalClose" class="close">&times;</span>
     <h2 id="modalProductName"></h2>
-    <p id="modalProductDescription"></p>
-    <p id="modalProductPrice"></p>
+    <div id="modalProductDescription" class="modal-description"></div>  <!-- Changed to <div> for better formatting -->
+    <p id="modalProductPrice" class="modal-price"></p>
     <a href="#" id="modalBuyButton" target="_blank" class="btn-buy">Buy on Shopee</a>
   </div>
 </div>
@@ -66,6 +66,21 @@
 <div id="footer-placeholder"></div>
 
 <script>
+// Load header
+fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('header-placeholder').innerHTML = data;
+  })
+  .catch(error => console.error('Error loading header:', error));  // Added error handling
+
+// Load footer
+fetch('footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  })
+  .catch(error => console.error('Error loading footer:', error));  // Added error handling
 
 // Product modal functionality
 const productCards = document.querySelectorAll('.product-card');
@@ -76,23 +91,27 @@ const modalDesc = document.getElementById('modalProductDescription');
 const modalPrice = document.getElementById('modalProductPrice');
 const modalBuy = document.getElementById('modalBuyButton');
 const searchInput = document.getElementById('searchInput');
+
 productCards.forEach(card => {
   card.addEventListener('click', () => {
     modalName.textContent = card.dataset.name;
-    modalDesc.textContent = card.dataset.description;
+    modalDesc.innerHTML = card.dataset.description;  // Changed to innerHTML for <br> support
     modalPrice.textContent = card.dataset.price;
     modalBuy.href = card.dataset.link;
     modal.style.display = 'block';
   });
 });
+
 modalClose.addEventListener('click', () => {
   modal.style.display = 'none';
 });
+
 window.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.style.display = 'none';
   }
 });
+
 // Search filter
 searchInput.addEventListener('input', () => {
   const filter = searchInput.value.toLowerCase();
