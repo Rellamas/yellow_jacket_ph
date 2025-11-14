@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Us - Yellow Jacket Toys PH</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<main class="about-page">
+  <section>
+    <h1>ABOUT US</h1>
+    <p>A shop running for 6 years, providing all your kidult needs</p>
+    <img src="images/products/nendoroid_kafka.jpg" alt="Yellow Jacket Toys logo" />
+  </section>
+
+  <section>
+    <h2>CORE VALUES</h2>
+    <div class="core-values">
+      <div class="core-box">
+        <div class="icon checkmark">&#10003;</div>
+        <h3>100% AUTHENTIC</h3>
+        <p>All products are authentic and original from our partnered suppliers</p>
+      </div>
+      <div class="core-box">
+        <div class="icon checkmark">&#10003;</div>
+        <h3>100% AUTHENTIC</h3>
+        <p>All products are authentic and original from our partnered suppliers</p>
+      </div>
+      <div class="core-box">
+        <div class="icon checkmark">&#10003;</div>
+        <h3>100% AUTHENTIC</h3>
+        <p>All products are authentic and original from our partnered suppliers</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>MISSION AND VISION</h2>
+    <div class="core-values">
+      <div class="core-box">
+        <div class="icon checkmark">&#10003;</div>
+        <h3>100% AUTHENTIC</h3>
+        <p>All products are authentic and original from our partnered suppliers</p>
+      </div>
+      <div class="core-box">
+        <div class="icon checkmark">&#10003;</div>
+        <h3>100% AUTHENTIC</h3>
+        <p>All products are authentic and original from our partnered suppliers</p>
+      </div>
+      <div class="core-box">
+        <div class="icon checkmark">&#10003;</div>
+        <h3>100% AUTHENTIC</h3>
+        <p>All products are authentic and original from our partnered suppliers</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+// Load header
+fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('header-placeholder').innerHTML = data;
+  });
+// Load footer
+fetch('footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  });
+</script>
+
+</body>
+</html>
